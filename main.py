@@ -176,7 +176,7 @@ async def create(_, message):
     if raw is not None:
         button.append([InlineKeyboardButton("Open Link", url=url), InlineKeyboardButton("Raw Link", url=raw)])
     else:
-        button.append([InlineKeyboardButton("Raw Link", url=raw)])
+        button.append([InlineKeyboardButton("Open Link", url=url)])
     button.append([InlineKeyboardButton("Share Link", url=f"https://telegram.me/share/url?url={url}")])
 
     pasted = f"**Here's your Github Gist URL successfully pasted.\n\nPaste by {uname}**"
