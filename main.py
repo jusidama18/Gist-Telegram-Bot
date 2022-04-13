@@ -24,7 +24,7 @@ except Exception as e:
     print(e)
     exit(1)
 
-OWNER_ID = int(environ.get('OWNER_ID, 845077810))
+OWNER_ID = int(environ.get('OWNER_ID', 845077810))
 sudo = filters.user()
 sudo.add(OWNER_ID)
 
