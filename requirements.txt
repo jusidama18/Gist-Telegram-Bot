@@ -1,0 +1,4 @@
+pyrogram
+pyromod
+TgCrypto
+requests

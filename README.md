@@ -1,1 +1,1 @@
-# Gist-Telegram-Bot
+# Gist-Telegram-Bot from [@JusidamaBot](https://t.me/JusidamaBot)
