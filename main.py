@@ -155,7 +155,7 @@ async def create(_, message):
         data = message.text.split(None, 1)[1]
 
     if message.from_user:
-        if message.from_user.mention:
+        if message.from_user.username:
             uname = f"@{message.from_user.username}"
         else:
             uname = f'[{message.from_user.first_name}](tg://user?id={message.from_user.id})'
