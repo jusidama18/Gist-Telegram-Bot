@@ -24,6 +24,11 @@ except Exception as e:
     print(e)
     exit(1)
 
+OWNER_ID = int(environ.get('OWNER_ID, 845077810))
+sudo = filters.user()
+sudo.add(OWNER_ID)
+
+
 class Github_Gist: # Learn class for first time, PR if bad or want to improve
     
     def __init__(self, title: str = "", description: str = "", is_secret: bool = False): # All Params For Custom, Maybe Later
@@ -78,7 +83,7 @@ class Github_Gist: # Learn class for first time, PR if bad or want to improve
             raise Exception(f"ERROR : Failed To Delete Github Gist")
 
 # Custom Filters, to support bot username
-def command(command: Union[str, list], prefix: Union[str, list] = ["/", "."]):
+def command(command: Union[str, list], prefix: Union[str, list] = ["/", "."], is_sudo: bool = False):
     username = app.get_me().username
     if isinstance(command, list):
         cmds = []
@@ -87,6 +92,8 @@ def command(command: Union[str, list], prefix: Union[str, list] = ["/", "."]):
         command = filters.command(cmds, prefix)
     else:
         command = filters.command([command, command + '@' + username], prefix)
+    if is_sudo:
+        command = command & sudo
     return command & ~filters.edited
 
 
@@ -183,7 +190,7 @@ async def create(_, message):
     await msg.edit(pasted, reply_markup=InlineKeyboardMarkup(button))
 
 
-@app.on_message(command('delete'))
+@app.on_message(command('delete', is_sudo=True))
 async def delete(_, message):
     try:
         ids = message.command[1]
