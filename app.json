@@ -1,0 +1,21 @@
+{
+	"name": "Gist Telegram Bot",
+	"repository": "https://github.com/jusidama18/Gist-Telegram-Bot",
+	"env": {
+		"BOT_TOKEN": {
+			"description": "Get your bot token from @botfather."
+		},
+		"API_ID": {
+			"description": "Get your API ID from my.telegram.org."
+		},
+		"API_HASH": {
+			"description": "Get your API HASH from my.telegram.org."
+		},
+		"GIST_TOKEN": {
+			"description": "Get your GitHub token from https://github.com/settings/tokens and add gist create permission."
+		},
+		"OWNER_ID": {
+			"description": "Get your ID by sending /id to @jusidamabot."
+		}
+	}
+}
